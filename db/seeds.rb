@@ -8,7 +8,7 @@
 
 
 
-puts "🗑 Deleting old users, posts and comments..."
+puts "🗑 Deleting old users, posts and comments..." 
 User.destroy_all
 Post.destroy_all
 Comment.destroy_all

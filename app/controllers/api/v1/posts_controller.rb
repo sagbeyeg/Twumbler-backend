@@ -16,6 +16,10 @@ class Api::V1::PostsController < ApplicationController
     render json: @post
   end
 
+  def destroy
+    @post.destroy
+  end
+
   private
 
   def find_post
