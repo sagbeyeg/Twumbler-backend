@@ -7,12 +7,12 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params(:name, :age, :email, :bio))
+    user = User.create(user_params(:name, :age, :email, :bio, :profile_photo))
     render json: user
   end
 
   def update
-	  @user.update(user_params(:name))
+	  @user.update(user_params(:name, :age, :bio, :profile_photo))
     render json: @user
   end
 

@@ -1,8 +1,14 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :age, :email, :bio 
+  include Rails.application.routes.url_helpers
+
+  attributes :id, :name, :age, :email, :bio, :user_profile_photo 
   # :user_email
   has_many :posts
   has_many :comments, through: :posts
+    
+    def user_profile_photo
+      rails_blob_path(object.profile_photo, only_path: true) if object.profile_photo.attached?
+    end
 
   # def user_email
   #   object.find_user_email
