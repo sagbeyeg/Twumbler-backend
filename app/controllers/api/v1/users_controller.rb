@@ -1,9 +1,14 @@
 class Api::V1::UsersController < ApplicationController
 
-  before_action :find_user
+  before_action :find_user, except: [:index]
+
+  def index
+    @users = User.all
+    render json: @users, each_serializer: UserEmailSerializer
+  end
 
   def show
-    render json: @user
+    render json: @user, serializer: CompleteUserSerializer
   end
 
   def create

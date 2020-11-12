@@ -5,10 +5,6 @@ class User < ApplicationRecord
   has_one_attached :profile_photo, dependent: :destroy
   validate :default_profile_photo, :on => :create
 
-  # def find_user_email
-  #   User.all.find{ |user| user.email == email}.id
-  # end
-
   private
 
   def default_profile_photo
