@@ -18,7 +18,7 @@ class Api::V1::UsersController < ApplicationController
 
   def update
 	  @user.update(user_params(:name, :age, :bio, :profile_photo))
-    render json: @user
+    render json: @user, serializer: CompleteUserSerializer
   end
 
   def destroy
