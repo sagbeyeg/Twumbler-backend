@@ -5,8 +5,8 @@ class CompleteUserSerializer < ActiveModel::Serializer
   has_many :posts
   has_many :comments, through: :posts
     
-    def user_profile_photo
-      rails_blob_path(object.profile_photo, only_path: true) if object.profile_photo.attached?
-    end
+  def user_profile_photo
+    rails_blob_path(object.profile_photo, only_path: true) if object.profile_photo.attached?
+  end
 
 end

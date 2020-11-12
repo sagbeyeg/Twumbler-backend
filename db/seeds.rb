@@ -29,14 +29,17 @@ puts "🍝 Seeding users..."
       user_id: user.id
     )
     puts "🍝 Seeding comments..."
-    5.times do
-      Comment.create!(
-      post_id: post.id,
-      user_id: user.id,
-      content: Faker::Hacker.say_something_smart
-      )
-    end
   end 
 end
+
+Post.all.each { |post| 
+  5.times do
+    Comment.create!(
+    post_id: post.id,
+    user_id: User.all.sample.id,
+    content: Faker::Hacker.say_something_smart
+    )
+  end
+}
 
 puts "🎉 Done!"
