@@ -32,7 +32,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def user_params(*args)
-		params.require(:user).permit(*args)
+		params.permit(*args)
   end
   
 end
